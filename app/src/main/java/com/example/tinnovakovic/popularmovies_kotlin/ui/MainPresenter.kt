@@ -3,19 +3,12 @@ package com.example.tinnovakovic.popularmovies_kotlin.ui
 import com.example.tinnovakovic.popularmovies_kotlin.Const.API_KEY
 import com.example.tinnovakovic.popularmovies_kotlin.api.RestService
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 class MainPresenter(private val view: MainContract.MainView) : MainContract.MainPresenter {
 
-//    private lateinit var view: MainContract.View
-
-
-    private val subscriptions = CompositeDisposable()
-
-
-   override fun getMovies(popularFilms: Boolean) {
+    override fun getMovies(popularFilms: Boolean) {
 
         RestService()
                 .getFilms(popularFilms, API_KEY)
@@ -30,9 +23,7 @@ class MainPresenter(private val view: MainContract.MainView) : MainContract.Main
                         onError = {
 
                         }
-
                 )
-
     }
 }
 

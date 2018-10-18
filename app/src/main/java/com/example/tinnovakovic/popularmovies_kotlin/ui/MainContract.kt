@@ -1,12 +1,12 @@
 package com.example.tinnovakovic.popularmovies_kotlin.ui
 
-import com.example.tinnovakovic.popularmovies_kotlin.Movie
+import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
 
 class MainContract {
 
     interface MainView {
 
-        fun showData(movies: Movie)
+        fun showData(movieObject: Movie)
 
     }
 

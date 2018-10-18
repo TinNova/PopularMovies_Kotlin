@@ -1,15 +1,13 @@
 package com.example.tinnovakovic.popularmovies_kotlin.api
 
 import com.example.tinnovakovic.popularmovies_kotlin.Const.BASE_URL
-import com.example.tinnovakovic.popularmovies_kotlin.Movie
+import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URI.create
 import javax.inject.Inject
 
 
