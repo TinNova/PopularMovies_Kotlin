@@ -2,6 +2,7 @@ package com.example.tinnovakovic.popularmovies_kotlin.api
 
 import com.example.tinnovakovic.popularmovies_kotlin.Const.BASE_URL
 import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
+import com.example.tinnovakovic.popularmovies_kotlin.data.MovieResult
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,9 +15,7 @@ import javax.inject.Inject
 class RestService {
 
     private  var INSTANCE: ApiMethods
-    //private lateinit var restService: RestService
 
-    // Only create this once
     init {
 
 
@@ -36,20 +35,6 @@ class RestService {
 
     @Inject lateinit var apiMethods: ApiMethods
 
-//    val instance: RestService
-//        get() {
-//
-//
-//            if (INSTANCE == null) {
-//
-//                restService = RestService()
-//
-//
-//            }
-//
-//            return this.restService!!
-//        }
-
     private fun provideOkHttp(): OkHttpClient {
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -63,16 +48,11 @@ class RestService {
     fun getFilms(popularFilms: Boolean, apiKey: String) =
             if (popularFilms) getPopularFilms(apiKey) else getTopRatedFilms(apiKey)
 
-//    fun getFilms(popularFilms : Boolean, apiKey: String): Single<Response<Movie>> {
-//        if (popularFilms) getPopularFilms(apiKey) else getTopRatedFilms(apiKey)
-//    }
-
-   private fun getTopRatedFilms(apiKey: String): Single<Movie> {
-
+   private fun getTopRatedFilms(apiKey: String): Single<List<MovieResult>> {
         return INSTANCE!!.getTopRatedFilms(apiKey)
     }
 
-    private  fun getPopularFilms(apiKey: String): Single<Movie> {
+    private  fun getPopularFilms(apiKey: String): Single<List<MovieResult>> {
         return INSTANCE!!.getPopularFilms(apiKey)
     }
 

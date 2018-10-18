@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
 import com.example.tinnovakovic.popularmovies_kotlin.R
 import com.example.tinnovakovic.popularmovies_kotlin.Utils
 import com.example.tinnovakovic.popularmovies_kotlin.data.MovieResult
@@ -19,6 +18,9 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
     private lateinit var presenter: MainPresenter
     private var popularFilms = true
     private var mMovies: List<MovieResult> = mutableListOf()
+
+    private val movieAdapter: MovieAdapter by lazy { MovieAdapter { launchDetailActivity(it) } }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +36,14 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
         isOnline()
     }
 
-    override fun showData(movieObject: Movie) {
-        Log.d("Show 0th Movies Title: ", movieObject.results[0].title)
-        recyclerView.adapter = MovieAdapter(movieObject.results, this)
+    override fun showData(movieResult: List<MovieResult>) {
+        Log.d("Show 0th Movies Title: ", movieResult[0].title)
+//        recyclerView.adapter = MovieAdapter(movieResult, this)
+        movieAdapter.setData(movieResult)
+    }
+
+    private fun launchDetailActivity(movieResult: MovieResult) {
+
 
     }
 
@@ -49,14 +56,12 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
         when (item?.itemId) {
             R.id.filter_by_popular ->
                 if (!popularFilms) {
-//                    mMovies
                     popularFilms = true
                     presenter.getMovies(popularFilms)
                 }
 
             R.id.filter_by_rating ->
                 if (popularFilms) {
-//                    mMovies
                     popularFilms = false
                     presenter.getMovies(popularFilms)
                 }
