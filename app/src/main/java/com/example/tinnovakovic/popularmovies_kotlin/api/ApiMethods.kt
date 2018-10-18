@@ -24,8 +24,8 @@ interface ApiMethods {
      */
 
     @GET("3/movie/top_rated?language=en-UK&page=1")
-    fun getTopRatedFilms(@Query("api_key") apiKey: String): Single<List<MovieResult>>
+    fun getTopRatedFilms(@Query("api_key") apiKey: String): Single<Movie>
 
     @GET("3/movie/popular?language=en-UK&page=1")
-    fun getPopularFilms(@Query("api_key") apiKey: String): Single<List<MovieResult>>
+    fun getPopularFilms(@Query("api_key") apiKey: String): Single<Movie>
 }

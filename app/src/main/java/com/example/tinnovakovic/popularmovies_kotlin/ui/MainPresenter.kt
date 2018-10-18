@@ -16,12 +16,11 @@ class MainPresenter(private val view: MainContract.MainView) : MainContract.Main
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-
                             view.showData(it)
 
                         },
                         onError = {
-
+                            it.printStackTrace()
                         }
                 )
     }

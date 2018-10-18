@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.tinnovakovic.popularmovies_kotlin.R
 import com.example.tinnovakovic.popularmovies_kotlin.Utils
+import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
 import com.example.tinnovakovic.popularmovies_kotlin.data.MovieResult
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,7 +18,6 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
 
     private lateinit var presenter: MainPresenter
     private var popularFilms = true
-    private var mMovies: List<MovieResult> = mutableListOf()
 
     private val movieAdapter: MovieAdapter by lazy { MovieAdapter { launchDetailActivity(it) } }
 
@@ -36,14 +36,14 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
         isOnline()
     }
 
-    override fun showData(movieResult: List<MovieResult>) {
-        Log.d("Show 0th Movies Title: ", movieResult[0].title)
-//        recyclerView.adapter = MovieAdapter(movieResult, this)
-        movieAdapter.setData(movieResult)
+    override fun showData(movie: Movie) {
+        Log.d("Show 0th Movies Title: ", movie.results[0].title)
+        recyclerView.adapter = movieAdapter
+        movieAdapter.setData(movie.results)
     }
 
     private fun launchDetailActivity(movieResult: MovieResult) {
-
+        Log.d("CLICKED", movieResult.title)
 
     }
 
