@@ -10,7 +10,7 @@ data class Movie(
         @SerializedName("results") val results: List<MovieResult>
 )
 
-data class MovieResult(
+data class MovieResult (
         @SerializedName("vote_count") val voteCount: Int,
         @SerializedName("id") val id: Int,
         @SerializedName("video") val video: Boolean,

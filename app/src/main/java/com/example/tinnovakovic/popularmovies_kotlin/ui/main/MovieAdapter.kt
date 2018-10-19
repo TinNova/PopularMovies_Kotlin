@@ -1,4 +1,4 @@
-package com.example.tinnovakovic.popularmovies_kotlin.ui
+package com.example.tinnovakovic.popularmovies_kotlin.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
