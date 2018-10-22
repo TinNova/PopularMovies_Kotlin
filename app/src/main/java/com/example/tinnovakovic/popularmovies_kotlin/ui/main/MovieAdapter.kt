@@ -24,7 +24,6 @@ class MovieAdapter(val movieClickCallback: (MovieResult) -> Unit) : RecyclerView
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
         holder.bind(movieData[position])
         holder.itemView.setOnClickListener { movieClickCallback(movieData[position]) }
-        holder.itemView.movieImage.setOnClickListener { }
     }
 
     fun setData(data: List<MovieResult>) {
