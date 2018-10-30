@@ -127,7 +127,7 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview_trailer"
+            android:id="@+id/recyclerviewTrailer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -144,7 +144,7 @@
             android:textStyle="bold" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview_castMember"
+            android:id="@+id/recyclerviewCastMember"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -162,7 +162,7 @@
             android:textStyle="bold" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview_review"
+            android:id="@+id/recyclerviewReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"

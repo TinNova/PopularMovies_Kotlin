@@ -1,9 +1,9 @@
 package com.example.tinnovakovic.popularmovies_kotlin.api
 
-import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
-import com.example.tinnovakovic.popularmovies_kotlin.data.MovieResult
+import com.example.tinnovakovic.popularmovies_kotlin.data.*
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiMethods {
@@ -28,4 +28,16 @@ interface ApiMethods {
 
     @GET("3/movie/popular?language=en-UK&page=1")
     fun getPopularFilms(@Query("api_key") apiKey: String): Single<Movie>
+
+    @GET("3/movie/{MOVIE_ID}/videos?language=en-UK")
+    fun getTrailers(@Path("MOVIE_ID") movieId: Int,
+                    @Query("api_key") apiKey: String): Single<Trailer>
+
+    @GET("3/movie/{MOVIE_ID}/credits?language=en-UK")
+    fun getCast(@Path("MOVIE_ID") movieId: Int,
+                @Query("api_key") apiKey: String): Single<Cast>
+
+    @GET("3/movie/{MOVIE_ID}/reviews?language=en-UK")
+    fun getReviews(@Path("MOVIE_ID") movieId: Int,
+                   @Query("api_key") apiKey: String): Single<Review>
 }
