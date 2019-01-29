@@ -1,4 +1,4 @@
-package com.example.tinnovakovic.popularmovies_kotlin.ui
+package com.example.tinnovakovic.popularmovies_kotlin.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -24,7 +24,6 @@ class MovieAdapter(val movieClickCallback: (MovieResult) -> Unit) : RecyclerView
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
         holder.bind(movieData[position])
         holder.itemView.setOnClickListener { movieClickCallback(movieData[position]) }
-        holder.itemView.movieImage.setOnClickListener { }
     }
 
     fun setData(data: List<MovieResult>) {

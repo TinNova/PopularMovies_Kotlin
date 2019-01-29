@@ -1,4 +1,4 @@
-package com.example.tinnovakovic.popularmovies_kotlin.ui
+package com.example.tinnovakovic.popularmovies_kotlin.ui.main
 
 import com.example.tinnovakovic.popularmovies_kotlin.Const.API_KEY
 import com.example.tinnovakovic.popularmovies_kotlin.api.RestService

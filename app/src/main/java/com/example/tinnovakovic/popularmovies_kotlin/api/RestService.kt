@@ -1,8 +1,7 @@
 package com.example.tinnovakovic.popularmovies_kotlin.api
 
 import com.example.tinnovakovic.popularmovies_kotlin.Const.BASE_URL
-import com.example.tinnovakovic.popularmovies_kotlin.data.Movie
-import com.example.tinnovakovic.popularmovies_kotlin.data.MovieResult
+import com.example.tinnovakovic.popularmovies_kotlin.data.*
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -52,8 +51,20 @@ class RestService {
         return INSTANCE.getTopRatedFilms(apiKey)
     }
 
-    private  fun getPopularFilms(apiKey: String): Single<Movie> {
+    private fun getPopularFilms(apiKey: String): Single<Movie> {
         return INSTANCE.getPopularFilms(apiKey)
+    }
+
+    fun getTrailers(movieId: Int, apiKey: String): Single<Trailer> {
+        return INSTANCE.getTrailers(movieId, apiKey)
+    }
+
+    fun getCast(movieId: Int, apiKey: String): Single<Cast> {
+        return INSTANCE.getCast(movieId, apiKey)
+    }
+
+    fun getReviews(movieId: Int, apiKey: String): Single<Review> {
+        return INSTANCE.getReviews(movieId, apiKey)
     }
 
 
